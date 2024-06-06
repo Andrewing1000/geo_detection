@@ -1,0 +1,3 @@
+0 circulo
+1 cuadrilatero
+2 triangulo
