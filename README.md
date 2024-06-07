@@ -1,4 +1,4 @@
-# geo_detection
+# geometry_detection
 
 A new Flutter project.
 

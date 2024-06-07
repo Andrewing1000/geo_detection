@@ -90,12 +90,12 @@ BEGIN
         BLOCK "040904e4"
         BEGIN
             VALUE "CompanyName", "com.example" "\0"
-            VALUE "FileDescription", "geo_detection" "\0"
+            VALUE "FileDescription", "geometry_detection" "\0"
             VALUE "FileVersion", VERSION_AS_STRING "\0"
-            VALUE "InternalName", "geo_detection" "\0"
+            VALUE "InternalName", "geometry_detection" "\0"
             VALUE "LegalCopyright", "Copyright (C) 2024 com.example. All rights reserved." "\0"
-            VALUE "OriginalFilename", "geo_detection.exe" "\0"
-            VALUE "ProductName", "geo_detection" "\0"
+            VALUE "OriginalFilename", "geometry_detection.exe" "\0"
+            VALUE "ProductName", "geometry_detection" "\0"
             VALUE "ProductVersion", VERSION_AS_STRING "\0"
         END
     END

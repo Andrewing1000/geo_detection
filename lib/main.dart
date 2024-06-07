@@ -1,28 +1,29 @@
-import 'package:camera/camera.dart';
+import 'dart:async';
 import 'package:flutter/material.dart';
-import 'package:geo_detection/home.dart';
+import 'package:camera/camera.dart';
+import 'home.dart';
 
-List<CameraDescription>? cameras;
+late List<CameraDescription> cameras;
 
-
-void main() async{
+Future<Null> main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  cameras= await availableCameras();
+  try {
+    cameras = await availableCameras();
+  } on CameraException catch (e) {
+    print('Error: $e.code\nError Message: $e.message');
+  }
   runApp(new MyApp());
 }
 
-
-
 class MyApp extends StatelessWidget {
-  const MyApp({Key? key}): super(key: key);
-
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      theme: ThemeData(primaryColor: Colors.deepPurple),
-      debugShowCheckedModeBanner: false,
-      home: Home(),
+      title: 'tflite real-time detection',
+      theme: ThemeData(
+        brightness: Brightness.dark,
+      ),
+      home: HomePage(cameras),
     );
   }
 }
-

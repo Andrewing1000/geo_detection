@@ -1,6 +1,6 @@
 {
-    "name": "geo_detection",
-    "short_name": "geo_detection",
+    "name": "geometry_detection",
+    "short_name": "geometry_detection",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",
