@@ -6,14 +6,14 @@ import 'package:flutter_tflite/flutter_tflite.dart';
 import 'package:image/image.dart' as img;
 import 'main.dart';
 
-class Home extends StatefulWidget {
-  const Home({Key? key}): super(key: key);
+class CameraScreen  extends StatefulWidget {
+  const CameraScreen ({Key? key}): super(key: key);
 
   @override
-  State<Home> createState() => _HomeState();
+  State<CameraScreen > createState() => _HomeState();
 }
 
-class _HomeState extends State<Home> {
+class _HomeState extends State<CameraScreen > {
   Camera.CameraImage? cameraImage;
   Camera.CameraController? cameraController;
   String output = '';
@@ -190,8 +190,8 @@ class _HomeState extends State<Home> {
   Future<void> loadModel() async {
     try {
       var result = await Tflite.loadModel(
-        model: "assets/model.tflite",
-        labels: "assets/labels.txt",
+        model: "assets/model_unquant.tflite",
+        labels: "assets/labels_1.txt",
         isAsset: true, // defaults to true, set to false to load resources outside assets
         useGpuDelegate: false
       );
@@ -236,3 +236,37 @@ class _HomeState extends State<Home> {
     );
   }
 }
+
+
+
+
+class Home extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('Detección de Figuras'),
+      ),
+      body: Container(
+        decoration: BoxDecoration(
+          image: DecorationImage(
+            image: AssetImage('assets/images/fondo.png'),
+            fit: BoxFit.cover,
+          ),
+        ),
+        child: Center(
+          child: ElevatedButton(
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => CameraScreen()),
+              );
+            },
+            child: Text('Abrir Cámara'),
+          ),
+        ),
+      ),
+    );
+  }
+}
+

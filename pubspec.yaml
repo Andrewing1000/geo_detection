@@ -58,7 +58,16 @@ dev_dependencies:
 flutter:
   assets:
     - assets/model.tflite
+    - assets/model_unquant.tflite
     - assets/labels.txt
+    - assets/labels_1.txt
+    - assets/images/fondo.png
+
+  fonts:
+    - family: Roboto
+      fonts:
+        - asset: assets/fonts/Roboto-Black.ttf
+
   # The following line ensures that the Material Icons font is
   # included with your application, so that you can use the icons in
   # the material Icons class.
