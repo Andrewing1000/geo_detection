@@ -1,3 +1,6 @@
-0 circulo
-1 cuadrilatero
-2 triangulo
+0 Cuadrado
+1 Circulo
+2 Triangulo
+3 Estrella
+4 Pentagono
+5 Ovalo
