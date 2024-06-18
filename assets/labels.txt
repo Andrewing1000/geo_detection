@@ -1,3 +1,5 @@
-0 circulo
-1 cuadrilatero
+0 Estrella
+1 Circulo
 2 triangulo
+3 Hexagono
+4 Cuadrilatero
