@@ -5,7 +5,7 @@ import 'package:flutter_tflite/flutter_tflite.dart';
 import 'main.dart';
 
 class Home extends StatefulWidget {
-  const Home({Key? key}): super(key: key);
+  const Home({super.key});
 
   @override
   State<Home> createState() => _HomeState();
@@ -25,7 +25,8 @@ class _HomeState extends State<Home> {
   }
 
   loadCamera() {
-    cameraController = Camera.CameraController(cameras![0], Camera.ResolutionPreset.medium);
+    cameraController =
+        Camera.CameraController(cameras![0], Camera.ResolutionPreset.medium);
     cameraController!.initialize().then((value) {
       if (!mounted) {
         return;
@@ -52,10 +53,9 @@ class _HomeState extends State<Home> {
   runModel() async {
     print("------------------->Prediction called");
     //if(Tflite.)
-    if(_modelLoaded){
+    if (_modelLoaded) {
       print("El modelito ya esta");
-    }
-    else{
+    } else {
       print("No hay modelito");
       //return;
     }
@@ -90,11 +90,11 @@ class _HomeState extends State<Home> {
   Future<void> loadModel() async {
     try {
       var result = await Tflite.loadModel(
-        model: "assets/model.tflite",
-        labels: "assets/labels.txt",
-        isAsset: true, // defaults to true, set to false to load resources outside assets
-        useGpuDelegate: false
-      );
+          model: "assets/model.tflite",
+          labels: "assets/labels.txt",
+          isAsset:
+              true, // defaults to true, set to false to load resources outside assets
+          useGpuDelegate: false);
       setState(() {
         _modelLoaded = true;
       });
@@ -107,26 +107,26 @@ class _HomeState extends State<Home> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('deteccion de figuras'),
+        title: const Text('deteccion de figuras'),
       ),
       body: Column(
         children: [
           Padding(
-            padding: EdgeInsets.all(20),
-            child: Container(
+            padding: const EdgeInsets.all(20),
+            child: SizedBox(
               height: MediaQuery.of(context).size.height * 0.7,
               width: MediaQuery.of(context).size.width,
               child: !cameraController!.value.isInitialized
                   ? Container()
                   : AspectRatio(
-                aspectRatio: cameraController!.value.aspectRatio,
-                child: Camera.CameraPreview(cameraController!),
-              ),
+                      aspectRatio: cameraController!.value.aspectRatio,
+                      child: Camera.CameraPreview(cameraController!),
+                    ),
             ),
           ),
           Text(
             output,
-            style: TextStyle(
+            style: const TextStyle(
               fontWeight: FontWeight.bold,
               fontSize: 20,
             ),

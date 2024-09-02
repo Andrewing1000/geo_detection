@@ -4,25 +4,21 @@ import 'package:geo_detection/home.dart';
 
 List<CameraDescription>? cameras;
 
-
-void main() async{
+void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  cameras= await availableCameras();
-  runApp(new MyApp());
+  cameras = await availableCameras();
+  runApp(const MyApp());
 }
 
-
-
 class MyApp extends StatelessWidget {
-  const MyApp({Key? key}): super(key: key);
+  const MyApp({super.key});
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       theme: ThemeData(primaryColor: Colors.deepPurple),
       debugShowCheckedModeBanner: false,
-      home: Home(),
+      home: const Home(),
     );
   }
 }
-
